@@ -3,6 +3,6 @@ import {match} from '../controllers/client.controller.js'
 
 const router=express.Router();
 
-router.get('/match', match);
+router.post('/match', match);
 
 export default router
