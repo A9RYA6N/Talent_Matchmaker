@@ -70,7 +70,7 @@ const Homepage = () => {
             })
             if(res.status==200)
             {
-                setData(d=>d=res.data.data)
+                setData(res.data.data)
             }
         } catch (err) {
             const error=err as AxiosError;
