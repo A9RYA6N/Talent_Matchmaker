@@ -104,5 +104,4 @@ The backend calculates scores for all creators using this logic and returns the 
 Not implemented, but possible enhancements include:
 - ✅ Thumbs up/down feedback per creator match (stored in `match_history.json`)
 - ✅ Display past feedback for each creator
-- ✅ Allow matching with remote creators
 - ✅ Use fuzzy matching (e.g., sentence embeddings) for better style detection
