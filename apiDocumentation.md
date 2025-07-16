@@ -21,7 +21,8 @@ The endpoint accepts JSON-formatted data with the following structure:
   "location": "string",
   "budget": number,
   "skills": ["string"],
-  "style": ["string"]
+  "style": ["string"],
+  "remote": boolean
 }
 ```
 
@@ -29,6 +30,7 @@ The endpoint accepts JSON-formatted data with the following structure:
 - **budget**: Numeric value representing the client's available budget
 - **skills**: Array of required skills (e.g., `["Fashion Shoots", "Weddings"]`)
 - **style**: Array of preferred visual styles (e.g., `["vibrant", "minimal"]`)
+- **remote**: Boolean value determining whether the city scoring logic should be skipped or not
 
 #### b. 📤 Output
 
