@@ -17,9 +17,10 @@ const Homepage = () => {
     const [budget, setBudget]=useState('');
     const [skills, setSkills]=useState<string[]>([]);
     const [styles, setStyles]=useState<string[]>([]);
+    const [remote, setRemote]=useState(false);
     const [error, setError]=useState('');
     const [loading, setLoading]=useState(false);
-    const [data, setData]=useState<Person[]>([])
+    const [data, setData]=useState<Person[]>([]);
 
     const handleSkillsChange=(e: React.ChangeEvent<HTMLSelectElement>)=>{
         const selectedOptions=Array.from(e.target.selectedOptions).map(option=>(option as HTMLOptionElement).value)
@@ -34,7 +35,7 @@ const Homepage = () => {
     const formatReason=(reason: {c: number; s: number; t: number; b: number;})=>{
         const parts=[]
         if (reason.c>0){
-            parts.push('Location match (+2)');
+            parts.push('Location match (+3)');
         } 
         if (reason.s>0){
             parts.push(`${reason.s} skill${reason.s>1 ? 's' : ''} matched (+${reason.s*2})`);
@@ -61,7 +62,8 @@ const Homepage = () => {
                 location,
                 budget:parseInt(budget),
                 skills,
-                style:styles
+                style:styles,
+                remote
             }
             const res = await axios({
                 method:"POST",
@@ -114,6 +116,8 @@ const Homepage = () => {
                     <option value="editorial">Editorial</option>
                     <option value="bold">Bold</option>
                 </select>
+                <label htmlFor="remote">Remote creators allowed</label>
+                <input type="checkbox" id="remote" onChange={(e)=>setRemote(e.target.checked)}/>
                 <input type="text" placeholder="Enter budget" onChange={(e)=>{setBudget(e.target.value)}} required/>
                 <button onClick={onClick} disabled={loading}>Submit</button>
             </div>

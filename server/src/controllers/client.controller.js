@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const match=async(req, res)=>{
-    const {location, budget, skills, style}=req.body
+    const {location, budget, skills, style, remote}=req.body
     try {
         const map={};
         const filePath = path.resolve(__dirname, '../data/TalentProfiles.json');
@@ -23,10 +23,16 @@ const match=async(req, res)=>{
         }
         for(let i=0; i<parsedData.length; i++)
         {
-            if(parsedData[i]['city']==location)
+            if(!remote)
             {
-                map[i][0]+=3;
-                map[i][1]['c']+=1;
+                if(parsedData[i]['city']==location)
+                {
+                    map[i][0]+=3;
+                    map[i][1]['c']+=1;
+                }
+            }
+            else{
+                map[i][1]['c']=0
             }
             skills.forEach(skill=>{
                 if(parsedData[i]['skills'].includes(skill))
