@@ -98,7 +98,11 @@ The backend assigns scores to each creator based on how well they match the clie
 The backend calculates scores for all creators using this logic and returns the **top 3 matches** along with a **breakdown of why they were selected**.
 
 ---
+## Deployed Website
 
+[Click here to visit the Talent Matchmaker](https://talent-matchmaker.vercel.app/)
+
+---
 ## 🧠 Improvements & Bonus Features (Optional)
 
 Not implemented, but possible enhancements include:
